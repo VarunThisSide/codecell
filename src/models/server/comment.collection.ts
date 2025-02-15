@@ -6,7 +6,7 @@ export default async function createCommentCollection(){
 
     await databases.createCollection(db , commentCollection ,commentCollection, [
         Permission.create("users"),
-        Permission.read("all"),
+        Permission.read("any"),
         Permission.read("users"),
         Permission.update("users"),
         Permission.delete("users"),

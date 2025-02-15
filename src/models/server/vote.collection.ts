@@ -5,7 +5,7 @@ import {databases} from "./config"
 export default async function createVoteCollection(){
     await databases.createCollection(db , voteCollection , voteCollection  , [
         Permission.create("users"),
-        Permission.read("all"),
+        Permission.read("any"),
         Permission.read("users"),
         Permission.update("users"),
         Permission.delete("users"),

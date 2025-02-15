@@ -6,7 +6,7 @@ import { databases } from "./config"
 export default async function createQuestionCollection(){
     
     await databases.createCollection(db , questionCollection  , questionCollection ,[
-        Permission.read("all"),
+        Permission.read("any"),
         Permission.read("users"),
         Permission.create("users"),
         Permission.update("users"),
@@ -26,6 +26,6 @@ export default async function createQuestionCollection(){
     
     await Promise.all([
         databases.createIndex(db , questionCollection , "title" , IndexType.Fulltext ,["title"] ,['asc']),
-        databases.createIndex(db , questionCollection , "content" , IndexType.Fulltext ,["content"] ,['asc']),
+        // databases.createIndex(db , questionCollection , "content" , IndexType.Fulltext ,["content"] ,['asc']),
     ])
 }
