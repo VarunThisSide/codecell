@@ -1,23 +1,52 @@
-import { Permission } from "node-appwrite";
-import {db , voteCollection} from "../name"
-import {databases} from "./config"
+// import { Permission } from "node-appwrite";
+// import {db , voteCollection} from "../name"
+// import {databases} from "./config"
 
-export default async function createVoteCollection(){
-    await databases.createCollection(db , voteCollection , voteCollection  , [
-        Permission.create("users"),
-        Permission.read("any"),
-        Permission.read("users"),
-        Permission.update("users"),
-        Permission.delete("users"),
-    ]);
-    console.log("Vote collection created");
+// export default async function createVoteCollection(){
+//     await databases.createCollection(db , voteCollection , voteCollection  , [
+//         Permission.create("users"),
+//         Permission.read("any"),
+//         Permission.read("users"),
+//         Permission.update("users"),
+//         Permission.delete("users"),
+//     ]);
+//     console.log("Vote collection created");
     
-    await Promise.all([
-        databases.createEnumAttribute(db , voteCollection , "type" , ["question" , "answer"] , true),
-        databases.createStringAttribute(db , voteCollection , "typeId" , 50 , true),
-        databases.createEnumAttribute(db , voteCollection , "voteStatus" , ["upvoted" , "downvoted"] , true),
-        databases.createStringAttribute(db , voteCollection , "voteById" , 50 , true),
-    ]);
-    console.log("Vote attributes created");
+//     await Promise.all([
+//         databases.createEnumAttribute(db , voteCollection , "type" , ["question" , "answer"] , true),
+//         databases.createStringAttribute(db , voteCollection , "typeId" , 50 , true),
+//         databases.createEnumAttribute(db , voteCollection , "voteStatus" , ["upvoted" , "downvoted"] , true),
+//         databases.createStringAttribute(db , voteCollection , "voteById" , 50 , true),
+//     ]);
+//     console.log("Vote attributes created");
     
+// }
+
+import { Permission } from "node-appwrite";
+import { db, voteCollection } from "../name";
+import { databases } from "./config";
+
+export default async function createVoteCollection() {
+    try {
+        // Creating Collection
+        await databases.createCollection(db, voteCollection, voteCollection, [
+            Permission.create("users"),
+            Permission.read("any"),
+            Permission.read("users"),
+            Permission.update("users"),
+            Permission.delete("users"),
+        ]);
+        console.log("Vote Collection Created");
+
+        // Creating Attributes
+        await Promise.all([
+            databases.createEnumAttribute(db, voteCollection, "type", ["question", "answer"], true),
+            databases.createStringAttribute(db, voteCollection, "typeId", 50, true),
+            databases.createEnumAttribute(db, voteCollection, "voteStatus", ["upvoted", "downvoted"], true),
+            databases.createStringAttribute(db, voteCollection, "votedById", 50, true),
+        ]);
+        console.log("Vote Attributes Created");
+    } catch (err) {
+        console.error("Error creating vote collection or attributes:", err);
+    }
 }
