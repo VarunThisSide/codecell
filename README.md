@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧠 Code-Cell
 
-## Getting Started
+A modern, full-stack **discussion hub** built with **Next.js**, **Appwrite**, **Zustand**, and **TailwindCSS**.  
+Users can post doubts, receive answers, upvote/downvote content, and build a personal reputation based on contributions — all wrapped in a fast, clean, and interactive UI.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ✅ **Post & Answer Questions** – Users can post technical doubts and receive structured, Markdown-supported answers.
+- 🔼 **Upvote/Downvote System** – Community-driven voting to highlight useful content.
+- 🏆 **User Ranking** – Dynamic ranking based on answers given and upvotes received.
+- 🔒 **Secure Auth** – JWT-based authentication via Appwrite ensures secure user sessions.
+- 🧠 **Rich Text Editor** – Integrated Markdown editor for writing structured, formatted answers.
+- 🎞 **Smooth Animations** – Framer Motion and Magic UI for delightful UI transitions.
+- 🗂 **Media Handling** – Upload and manage attachments in posts using Appwrite Storage.
+- ⚙️ **State Management** – Lightweight and scalable state control with Zustand.
+- 📦 **Typed, Structured Backend** – Appwrite Database handles queries, relationships, and user data cleanly.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🛠️ Tech Stack
 
-## Learn More
+| Frontend         | Backend / Services       | Styling       | Libraries / Utils       |
+|------------------|---------------------------|----------------|--------------------------|
+| Next.js (App Router) | Appwrite (Auth, DB, Storage) | TailwindCSS   | Zustand (state management) |
+| React            | JWT Authentication        | Magic UI       | Framer Motion (animations) |
+| TypeScript       | Appwrite SDK (client)     |                | Markdown Editor          |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+├── app/ # App Router routes
+├── components/ # UI components (RTE, UI kit, etc.)
+├── lib/ # Utilities (e.g., cn, slugify)
+├── store/ # Zustand stores
+├── styles/ # Global and component styles
+├── public/ # Static assets
+├── .env.local # Environment variables
+└── README.md
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🧪 Running Locally
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/yourusername/code-cell.git
+   cd code-cell
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+
+3. **Set up environment variables:**
+
+    Create a `.env.local` file in the root of your project and add the following:
+
+    ```env
+    NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+    NEXT_PUBLIC_APPWRITE_PROJECT=your_project_id
+    NEXT_PUBLIC_APPWRITE_DATABASE_ID=your_database_id
+    NEXT_PUBLIC_APPWRITE_COLLECTION_ID=your_collection_id
+
+4. **Start the dev server:**
+   ```bash
+   npm run dev
+
+## 📦 Deployment
+    This project is optimized for deployment on Vercel.
+    Set the same environment variables in your Vercel project settings before deploying.
